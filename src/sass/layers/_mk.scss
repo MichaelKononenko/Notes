@@ -1,5 +1,11 @@
 .container--column {
-  background-image: url(../images/checkered-sheet.jpg);
+  // background-image: url(../images/checkered-sheet.jpg);
+  background: 
+  repeating-linear-gradient(
+    #bbb 1px, transparent 2px, transparent 28px),
+    repeating-linear-gradient(
+      90deg,
+    #bbb 1px, transparent 2px, transparent 28px);
   display: flex;
   padding-top: 50px;
 }
@@ -35,3 +41,13 @@
 .sidebar__item:not(:last-child) {
   margin-bottom: 20px;
 }
+
+.module-block {
+  padding-bottom: 20px;
+  display: none;
+}
+.module-block:target {
+display: block;
+}
+
+
