@@ -1,53 +1,70 @@
-.container--column {
-  // background-image: url(../images/checkered-sheet.jpg);
-  background: 
-  repeating-linear-gradient(
-    #bbb 1px, transparent 2px, transparent 28px),
-    repeating-linear-gradient(
-      90deg,
-    #bbb 1px, transparent 2px, transparent 28px);
+.mk-container {
   display: flex;
-  padding-top: 50px;
-}
-.mk-title {
-  text-align: center;
-  margin-bottom: 50px;
+  padding: 0 50px;
+  justify-content: center;
+  height: 100%;
 }
 
-.ads {
-  outline: 1px solid black;
-  height: 90vh;
-  display: flex;
-  align-items: center;
+.mk-header {
+  height: 10vh;
 }
-.ads__description {
+
+.control {
+  display: flex;
+  align-self: center;
+  gap: 30px;
+}
+.control-button {
+  padding: 10px;
+  border: 1px dashed black;
+  border-radius: 10px;
+  background-color: rgb(220, 218, 218);
+}
+
+.mk-main {
+  // display: flex;
+  // height: 80vh;
+  background: repeating-linear-gradient(
+      #bbb 1px,
+      transparent 2px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #bbb 1px,
+      transparent 2px,
+      transparent 28px
+    );
+}
+.main-content {
+  display: flex;
+  gap: 5vw;
+}
+.mk-ads {
+  width: 10vw;
+  border: 2px dashed black;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   padding: 20px;
+  text-align: center;
 }
 
-.main {
-  padding: 20px;
-  outline: 1px solid pink;
-}
-.sidebar {
-  padding: 20px;
-  outline: 1px solid purple;
-}
-.sidebar__item {
-  padding: 5px;
-  outline: 1px dashed tomato;
-}
-.sidebar__item:not(:last-child) {
-  margin-bottom: 20px;
+.content-wrapper {
+  padding: 10px;
+  width: 70vw;
+  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
-.module-block {
-  padding-bottom: 20px;
-  display: none;
+.note {
+  text-align: center;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 100px;
+  height: 70px;
 }
-.module-block:target {
-display: block;
-}
-
-

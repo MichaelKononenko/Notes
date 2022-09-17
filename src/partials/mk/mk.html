@@ -12,7 +12,41 @@
     <link rel="stylesheet" href="../../sass/index.scss" />
   </head>
   <body>
-    <!-- <include src="./partials/mk.html"></include> -->
-    <include src="./partials/mk/base.html"></include>
+    <header class="mk-header">
+      <section class="mk-container">
+        <ul class="control">
+          <li class="control__item">
+            <button type="button" class="control-button" id="previous">
+              previous
+            </button>
+          </li>
+          <li class="control__item">
+            <button type="button" class="control-button" id="add">add</button>
+          </li>
+          <li class="control__item">
+            <button type="button" class="control-button" id="home">home</button>
+          </li>
+          <li class="control__item">
+            <button type="button" class="control-button" id="remove">
+              remove
+            </button>
+          </li>
+          <li class="control__item">
+            <button type="button" class="control-button" id="next">next</button>
+          </li>
+        </ul>
+      </section>
+    </header>
+    <main class="mk-main">
+      <section class="mk-container main-content">
+        <div class="mk-ads">
+          "google ads..." buy a subscription to disable ads
+        </div>
+        <div class="content-wrapper"></div>
+      </section>
+    </main>
+
+    <!-- <include src="./partials/mk/base.html"></include> -->
+    <script src="../../js/mk-experiments.js" type="module"></script>
   </body>
 </html>
