@@ -1,6 +1,6 @@
 .mk-container {
   display: flex;
-  padding: 0 50px;
+  padding: 0 15px;
   justify-content: center;
   height: 100%;
 }
@@ -11,10 +11,13 @@
 
 .control {
   display: flex;
+  justify-content: center;
   align-self: center;
-  gap: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.control-button {
+.control-button,
+.mk-button {
   padding: 10px;
   border: 1px dashed black;
   border-radius: 10px;
@@ -37,6 +40,7 @@
     );
 }
 .main-content {
+  min-height: 80vh;
   display: flex;
   gap: 5vw;
 }
@@ -51,7 +55,7 @@
 
 .content-wrapper {
   padding: 10px;
-  width: 70vw;
+  width: 80vw;
   border: 2px solid black;
   display: flex;
   flex-wrap: wrap;
@@ -67,4 +71,95 @@
   border-radius: 10px;
   width: 100px;
   height: 70px;
+  background: repeating-linear-gradient(
+      #bbb 1px,
+      transparent 2px,
+      transparent 10px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #bbb 1px,
+      transparent 2px,
+      transparent 10px
+    );
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.mk-backdrop {
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.mk-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  width: 50vw;
+  height: 70vh;
+  background-color: white;
+}
+
+.mk-modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mk-modal__title {
+  text-align: center;
+  margin: 0 auto 20px;
+  font-size: 20px;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+}
+.form-label:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form-label input,
+.form-label textarea {
+  padding: 10px;
+}
+
+.mk-note__backdrop {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.mk-note__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vh;
+  border: 2px dashed black;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.mk-note__list li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#note-title,
+#note-description,
+#note-tags {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
 }
