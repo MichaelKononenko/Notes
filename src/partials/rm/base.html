@@ -1,128 +1,176 @@
-<div class="container container--column">
-  <section class="ads">
-    <p class="ads__description">
-      "google ads..." buy a subscription to disable ads
-    </p>
-  </section>
-  <main class="main">
-    <!-- <h1 class="mk-title">Lorem, ipsum dolor.</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <main class="page">
+        <header class="header">
+          <div class="header__container">
+            <a href="" class="header__logo"></a>
+            <div class="header__menu menu">
+              <div class="menu__icon"><span></span></div>
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <a data-goto=".page__section_1" href="#" class="menu__link"
+                      >Module 1</a
+                    >
+                  </li>
+                  <li class="menu__item">
+                    <a data-goto=".page__section_2" href="#" class="menu__link"
+                      >Module 2</a
+                    >
+                  </li>
+                  <li class="menu__item">
+                    <a data-goto=".page__section_3" href="#" class="menu__link"
+                      >Module 3</a
+                    >
+                  </li>
+
+                  <li class="menu__item">
+                    <a href="" class="menu__link">Page 1</a>
+                    <span class="menu__arrow"></span>
+                    <ul class="menu__sub--list">
+                      <li class="menu__sub--item">
+                        <a href="" class="menu__sub--link">Page section 1.1</a>
+                      </li>
+                      <li class="menu__sub--item">
+                        <a href="" class="menu__sub--link">Page section 1.2</a>
+                      </li>
+                      <li class="menu__sub--item">
+                        <a href="" class="menu__sub--link">Page section 1.3</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item">
+                    <a href="" class="menu__link">Page 2</a>
+                    <span class="menu__arrow"></span>
+                    <ul class="menu__sub--list">
+                      <li class="menu__sub--item">
+                        <a href="" class="menu__sub--link">Page section 2.1</a>
+                      </li>
+                      <li class="menu__sub--item">
+                        <a href="" class="menu__sub--link">Page section 2.2</a>
+                      </li>
+                      <li class="menu__sub--item">
+                        <a href="" class="menu__sub--link">Page section 2.3</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+
+        <section class="page__section page__section_1">
+          <h1 class="mk-title">Module 1</h1>
+          <h2>У JavaScript є 8 основних типів даних</h2>
+          <h3>Сім примітивних типів даних:</h3>
+
+          <ul>
+            <li>
+              number для чисел будь-якого типу: цілих чи з плаваючою комою, цілі
+              числа обмежені .±(253-1)
+            </li>
+            <li>bigint для цілих чисел довільної довжини.</li>
+            <li>
+              string для струн. Рядок може містити нуль або більше символів,
+              окремого односимвольного типу не існує.
+            </li>
+            <li>boolean для true/ false.</li>
+            <li>
+              null для невідомих значень – окремий тип, який має одне значення
+              null.
+            </li>
+            <li>
+              undefined для непризначених значень – окремий тип, який має одне
+              значення undefined.
+            </li>
+            <li>symbol для унікальних ідентифікаторів.</li>
+          </ul>
+
+          <h3>І один непримітивний тип даних:</h3>
+          <p>object для більш складних структур даних.</p>
+        </section>
+
+        <section class="page__section page__section_2">
+          <h1 class="mk-title">Module 2</h1>
+          <h2>split() "розкол"</h2>
+
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-            molestias. Rem ullam voluptas, ea porro labore iure eveniet, saepe magni
-            molestias soluta pariatur accusantium est tempore a animi esse. Non vero
-            molestiae ducimus debitis rerum consequuntur esse ipsum omnis est neque
-            labore dolore facere sapiente quidem, nobis, inventore, iste corporis
-            placeat! Officia rem earum voluptatibus aliquid cupiditate laborum ullam
-            vitae quos natus dolorum animi neque sit quibusdam, dolorem nesciunt
-            magnam soluta. Adipisci laudantium aut voluptatibus? Cupiditate nisi
-            cumque saepe temporibus, inventore, provident sit mollitia, quaerat
-            exercitationem ex dolorum. Sed repellendus nobis omnis! Ex fugit a, velit
-            quod iste harum possimus.
-          </p> -->
-    <div id="mod-1" class="module-block">
-      <h1 class="mk-title">Module 1</h1>
-      <h2>У JavaScript є 8 основних типів даних</h2>
-      <h3>Сім примітивних типів даних:</h3>
+            Метод split(delimiter) перетворює рядок в масив, «розбиваючи» його
+            роздільником delimiter. Якщо роздільник - це порожній рядок, то
+            створиться масив окремих символів. Роздільником може бути один або
+            декілька символів.
+          </p>
+          <h3>join()</h3>
+          <p>
+            const words = ["JavaScript", "це", "цікаво"]; \<br />
+            console.log(words.join("")); // "JavaScriptцецікаво" \<br />
+            console.log(words.join(" ")); // "JavaScript це цікаво" \<br />
+            console.log(words.join("-")); // "JavaScript-це-цікаво"\<br />
+          </p>
+          <h3>indexOf()</h3>
+          <p>
+            indexOf(value) повертає перший індекс, в якому елемент зі значенням
+            value був знайдений в масиві, або число -1, якщо такий елемент
+            відсутній.
+          </p>
+          <p>
+            const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+            console.log(clients.indexOf("Poly")); // 2
+            console.log(clients.indexOf("Monkong")); // -1
+          </p>
+          <p>і так далі)</p>
+        </section>
 
-      <ul>
-        <li>
-          number для чисел будь-якого типу: цілих чи з плаваючою комою, цілі
-          числа обмежені .±(253-1)
-        </li>
-        <li>bigint для цілих чисел довільної довжини.</li>
-        <li>
-          string для струн. Рядок може містити нуль або більше символів,
-          окремого односимвольного типу не існує.
-        </li>
-        <li>boolean для true/ false.</li>
-        <li>
-          null для невідомих значень – окремий тип, який має одне значення null.
-        </li>
-        <li>
-          undefined для непризначених значень – окремий тип, який має одне
-          значення undefined.
-        </li>
-        <li>symbol для унікальних ідентифікаторів.</li>
-      </ul>
+        <section class="page__section page__section_3">
+          <h1 class="mk-title">Module 3</h1>
 
-      <h3>І один непримітивний тип даних:</h3>
-      <p>object для більш складних структур даних.</p>
+          <h3>map()</h3>
+          <p>
+            Метод map(callback) використовується для трансформації масиву.Він
+            викликає колбек-функцію для кожного елемента вихідного масиву, а
+            результат її роботи записує у новий масив, який і буде результатом
+            виконання методу.
+          </p>
+          <ul>
+            <li>Поелементо перебирає оригінальний масив.</li>
+            <li>Не змінює оригінальний масив.</li>
+            <li>Результат роботи колбек-функції записується у новий масив.</li>
+            <li>Повертає новий масив однакової довжини.</li>
+          </ul>
+          <p>
+            const planets = ["Земля", "Марс", "Венера", "Юпітер"]; \<br />
+
+            const planetsInUpperCase = planets.map(planet =>
+            planet.toUpperCase());<br />
+            console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', 'ВЕНЕРА',
+            'ЮПІТЕР']<br />
+
+            const planetsInLowerCase = planets.map(planet =>
+            planet.toLowerCase());<br />
+            console.log(planetsInLowerCase); // ['земля', 'марс', 'венера',
+            'юпітер']<br />
+
+            // Оригінальний масив не змінився<br />
+            console.log(planets); // ['Земля', 'Марс', 'Венера', 'Юпітер']<br />
+          </p>
+        </section>
+      </main>
     </div>
-    <div id="mod-2" class="module-block">
-      <h1 class="mk-title">Module 2</h1>
-      <h2>split() "розкол"</h2>
-
-      <p>
-        Метод split(delimiter) перетворює рядок в масив, «розбиваючи» його
-        роздільником delimiter. Якщо роздільник - це порожній рядок, то
-        створиться масив окремих символів. Роздільником може бути один або
-        декілька символів.
-      </p>
-      <h3>join()</h3>
-      <p>
-        const words = ["JavaScript", "це", "цікаво"]; \<br />
-        console.log(words.join("")); // "JavaScriptцецікаво" \<br />
-        console.log(words.join(" ")); // "JavaScript це цікаво" \<br />
-        console.log(words.join("-")); // "JavaScript-це-цікаво"\<br />
-      </p>
-      <h3>indexOf()</h3>
-      <p>
-        indexOf(value) повертає перший індекс, в якому елемент зі значенням
-        value був знайдений в масиві, або число -1, якщо такий елемент
-        відсутній.
-      </p>
-      <p>
-        const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
-        console.log(clients.indexOf("Poly")); // 2
-        console.log(clients.indexOf("Monkong")); // -1
-      </p>
-      <p>і так далі)</p>
-    </div>
-    <div id="mod-3" class="module-block">
-      <h1 class="mk-title">Module 3</h1>
-
-      <h3>map()</h3>
-      <p>
-        Метод map(callback) використовується для трансформації масиву.Він
-        викликає колбек-функцію для кожного елемента вихідного масиву, а
-        результат її роботи записує у новий масив, який і буде результатом
-        виконання методу.
-      </p>
-      <ul>
-        <li>Поелементо перебирає оригінальний масив.</li>
-        <li>Не змінює оригінальний масив.</li>
-        <li>Результат роботи колбек-функції записується у новий масив.</li>
-        <li>Повертає новий масив однакової довжини.</li>
-      </ul>
-      <p>
-        const planets = ["Земля", "Марс", "Венера", "Юпітер"]; \<br />
-
-        const planetsInUpperCase = planets.map(planet =>
-        planet.toUpperCase());<br />
-        console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', 'ВЕНЕРА',
-        'ЮПІТЕР']<br />
-
-        const planetsInLowerCase = planets.map(planet =>
-        planet.toLowerCase());<br />
-        console.log(planetsInLowerCase); // ['земля', 'марс', 'венера',
-        'юпітер']<br />
-
-        // Оригінальний масив не змінився<br />
-        console.log(planets); // ['Земля', 'Марс', 'Венера', 'Юпітер']<br />
-      </p>
-    </div>
-  </main>
-  <aside class="sidebar">
-    <ul class="sidebar__ist">
-      <li class="sidebar__item"><a href="#mod-1">Module 1</a></li>
-      <li class="sidebar__item"><a href="#mod-2">Module 2</a></li>
-      <li class="sidebar__item"><a href="#mod-3">Module 3</a></li>
-      <li class="sidebar__item"><a href="">Module 4</a></li>
-      <li class="sidebar__item"><a href="">lorem</a></li>
-      <li class="sidebar__item"><a href="">lorem</a></li>
-      <li class="sidebar__item"><a href="">lorem</a></li>
-      <li class="sidebar__item"><a href="">lorem</a></li>
-      <li class="sidebar__item"><a href="">lorem</a></li>
-    </ul>
-  </aside>
-</div>
+    <script src="../../js/mk/rm-some.js" type="module"></script>
+  </body>
+</html>
