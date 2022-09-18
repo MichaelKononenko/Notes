@@ -167,7 +167,6 @@ function goPreviousNote(itemId) {
   }
   showNoteModal(itemId);
 }
-nextNote.inn
 function goNextNote(itemId) {
   console.log('voobshe ne ok');
   itemId += 1;
