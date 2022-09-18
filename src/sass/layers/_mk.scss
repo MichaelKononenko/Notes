@@ -17,7 +17,8 @@
   flex-wrap: wrap;
 }
 .control-button,
-.mk-button {
+.mk-button,
+.note-nav__button {
   padding: 10px;
   border: 1px dashed black;
   border-radius: 10px;
@@ -69,8 +70,8 @@
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
-  width: 100px;
-  height: 70px;
+  width: 150px;
+  height: 80px;
   background: repeating-linear-gradient(
       #bbb 1px,
       transparent 2px,
@@ -83,7 +84,12 @@
       transparent 10px
     );
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
+}
+
+.note__title {
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .mk-backdrop {
@@ -136,10 +142,12 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  // background-color: white;
 }
 
-.mk-note__list {
+// .mk-note__list
+.mk-note__modal {
+  background-color: white;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -147,12 +155,18 @@
   width: 70vw;
   height: 70vh;
   border: 2px dashed black;
+  box-shadow: 12px 12px 2px 1px gray;
   border-radius: 20px;
   padding: 30px;
 }
 
-.mk-note__list li:not(:last-child) {
-  margin-bottom: 20px;
+// .mk-note__list li:not(:last-child) {
+//   margin-bottom: 20px;
+// }
+
+.note__tags {
+  overflow-wrap: break-word;
+  // width: 80px;
 }
 
 #note-title,
@@ -162,4 +176,23 @@
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+}
+#note-title,
+#note-description {
+  margin-bottom: 20px;
+}
+
+.note-nav__button {
+  position: absolute;
+  bottom: 20px;
+}
+#previous {
+  left: 50px;
+}
+#remove {
+  left: 50%;
+  transform: translateX(-50%);
+}
+#next {
+  right: 50px;
 }

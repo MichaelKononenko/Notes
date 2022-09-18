@@ -77,28 +77,20 @@ function addNewItem(idCounter) {
   newNote.id = `item-${idCounter}`;
 
   newNote.innerHTML += `
-   <h2 class="note__title">${data[idCounter - 1].title}</h2>
+   <h2 class="note__title">${data[idCounter - 1].title} №${idCounter}</h2>
     <p class="note__tags">tags: ${data[idCounter - 1].tags}</p>
   `;
 
   notesArea.append(newNote);
 
   const itemElement = document.getElementById(`item-${idCounter}`);
-  itemElement.addEventListener('click', function showNoteModal(id) {
-    noteModal.classList.toggle('is-hidden');
-
-    noteList.innerHTML = `
-     <li class="mk-note__item"><h2 id="note-title">${
-       data[idCounter - 1].title
-     } №${idCounter}</h2>
-        <p id="note-description">${data[idCounter - 1].description}</p>
-        <p id="note-tags">tags: ${data[idCounter - 1].tags}</p></li>`;
-
+  itemElement.addEventListener('click', () => {
+    console.log(idCounter);
+    showNoteModal(idCounter);
     removeButton.addEventListener(
       'click',
       (remove = () => removeNote(idCounter))
     );
-    // previousNote.addEventListener('click', () => goPreviousNote(idCounter));
   });
 }
 
@@ -108,6 +100,31 @@ noteModal.addEventListener('click', event => {
   }
 });
 
+//show the note modal//
+function showNoteModal(itemId) {
+  nextNote.addEventListener('click', (next = () => goNextNote(itemId)), {
+    once: true,
+  });
+  previousNote.addEventListener(
+    'click',
+    (previous = () => {
+      goPreviousNote(itemId);
+    }),
+    {
+      once: true,
+    }
+  );
+
+  noteModal.classList.remove('is-hidden');
+
+  noteList.innerHTML = `
+     <li class="mk-note__item"><h2 id="note-title">${
+       data[itemId - 1].title
+     } №${itemId}</h2>
+        <p id="note-description">${data[itemId - 1].description}</p>
+        <p id="note-tags">tags: ${data[itemId - 1].tags}</p></li>`;
+}
+
 //add 10 lorem items//
 const loremItemButton = document.getElementById('10-items');
 loremItemButton.addEventListener('click', createLorem);
@@ -115,12 +132,11 @@ loremItemButton.addEventListener('click', createLorem);
 function createLorem() {
   for (let i = 0; i < 10; i++) {
     idCounter += 1;
-
     const newData = {
       title: 'Lorem, ipsum',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, maxime tempora! Reprehenderit, sequi harum amet aliquam rerum officia! Impedit, dolorum? Consequatur nemo sit quas. Numquam aspernatur reprehenderit nulla illum, voluptatibus tenetur voluptatem possimus fugit natus. Quia eos iure neque praesentium voluptatibus expedita provident ipsa aperiam. Excepturi dolorem nisi fugit tenetur.',
-      tags: ['lorem', 'ipsum', 'dolor', 'sit', 'amet'],
+      tags: ['lorem', 'ipsum', 'dolor', 'sit'],
     };
     data.push(newData);
 
@@ -140,16 +156,26 @@ function removeNote(id) {
 }
 
 // handling forward and backward buttons//
-function goPreviousNote(id) {
-  // noteModal.classList.toggle('is-hidden');
+function goPreviousNote(itemId) {
+  itemId -= 1;
+  if (itemId < 1) {
+    itemId = 1;
+  }
+  console.log('ne ok');
+  if (!Object.keys(data[itemId - 1]).length) {
+    itemId -= 1;
+  }
+  showNoteModal(itemId);
 }
-
-// function goNextNote(id) {
-//   // id += 1;
-//   noteModal.classList.toggle('is-hidden');
-
-//   noteList.innerHTML = `
-//      <li class="mk-note__item"><h2 id="note-title">${data[id].title} №${idCounter}</h2>
-//         <p id="note-description">${data[id].description}</p>
-//         <p id="note-tags">tags: ${data[id].tags}</p></li>`;
-// }
+nextNote.inn
+function goNextNote(itemId) {
+  console.log('voobshe ne ok');
+  itemId += 1;
+  if (itemId > data.length) {
+    itemId = data.length;
+  }
+  if (!Object.keys(data[itemId - 1]).length) {
+    itemId += 1;
+  }
+  showNoteModal(itemId);
+}

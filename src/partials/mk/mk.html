@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>My notes</title>
     <link rel="icon" href="../../images/think_about.ico" />
     <link
       rel="stylesheet"
@@ -16,23 +16,10 @@
       <section class="mk-container">
         <ul class="control">
           <li class="control__item">
-            <button type="button" class="control-button" id="previous">
-              previous
-            </button>
-          </li>
-          <li class="control__item">
             <button type="button" class="control-button" id="add">add</button>
           </li>
           <li class="control__item">
-            <button type="button" class="control-button" id="home">home</button>
-          </li>
-          <li class="control__item">
-            <button type="button" class="control-button" id="remove">
-              remove
-            </button>
-          </li>
-          <li class="control__item">
-            <button type="button" class="control-button" id="next">next</button>
+            <button type="button" class="control-button" id="10-items">add 10 'lorem' notes</button>
           </li>
         </ul>
       </section>
@@ -69,12 +56,31 @@
     </div>
 
     <div class="mk-note__backdrop is-hidden">
-      <ul class="mk-note__list">
+      <div class="mk-note__modal">
+        <ul class="mk-note__list">
+        </ul>
+      <ul class="note-nav__list">
+        <li class="note-nav__item">
+            <button type="button" class="note-nav__button" id="previous">
+              previous
+            </button>
+          </li>
+             <li class="control__item">
+            <button type="button" class="note-nav__button" id="remove">
+              remove
+            </button>
+          </li>
+           <li class="note-nav__item">
+            <button type="button" class="note-nav__button" id="next">next</button>
+          </li>
       </ul>
+      </div>
     </div>
 
     <!-- <include src="./partials/mk/base.html"></include> -->
-    <script src="../../js/mk/mk-experiments.js" type="module"></script>
+    <!-- <script src="../../js/mk/mk-experiments.js" type="module"></script> -->
+    <script src="../../js/mk/one-more-try.js"></script>
   </body>
 </html>
+
 
