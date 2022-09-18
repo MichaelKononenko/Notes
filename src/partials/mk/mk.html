@@ -42,11 +42,39 @@
         <div class="mk-ads">
           "google ads..." buy a subscription to disable ads
         </div>
-        <div class="content-wrapper"></div>
+        <ul class="content-wrapper">
+        </ul>
       </section>
     </main>
+
+    <div class="mk-backdrop is-hidden">
+      <div class="mk-modal">
+        <p class="mk-modal__title">Add new note</p>
+        <form action="" class="mk-modal__form">
+          <label class="form-label">Title<input type="text" name="title" /></label
+          ><label class="form-label">
+            <textarea
+              name="Description"
+              rows="6"
+              placeholder="Введите описание"
+            ></textarea>
+          </label>
+            </label
+          ><label class="form-label">Tags<input type="text" name="tags" /></label>
+          <button type="submit" class="mk-button" id="form-submit">
+            submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mk-note__backdrop is-hidden">
+      <ul class="mk-note__list">
+      </ul>
+    </div>
 
     <!-- <include src="./partials/mk/base.html"></include> -->
     <script src="../../js/mk/mk-experiments.js" type="module"></script>
   </body>
 </html>
+
