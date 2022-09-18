@@ -1,4 +1,4 @@
-[Notes](https://michaelkononenko.github.io/notes/)
+**[Notes](https://michaelkononenko.github.io/notes/)**
 **Read in other languages: [Русский](README.md), [Polski](README.pl.md).**
 
 # Parcel template
