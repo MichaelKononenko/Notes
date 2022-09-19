@@ -27,7 +27,7 @@ const addButton = document.getElementById('add');
 const notesArea = document.querySelector('.content-wrapper');
 const submitButton = document.getElementById('form-submit');
 const backdrop = document.querySelector('.mk-backdrop');
-const modalForm = document.querySelector('form');
+const inputModalForm = document.querySelector('form');
 const noteModal = document.querySelector('.mk-note__backdrop');
 const noteList = document.querySelector('.mk-note__list');
 const removeButton = document.getElementById('remove');
@@ -49,9 +49,9 @@ submitButton.addEventListener('click', createNewNote);
 function createNewNote(event) {
   event.preventDefault();
 
-  const title = modalForm.elements[0];
-  const description = modalForm.elements[1];
-  const tags = modalForm.elements[2];
+  const title = inputModalForm.elements[0];
+  const description = inputModalForm.elements[1];
+  const tags = inputModalForm.elements[2];
   const newNote = {
     title: title.value,
     description: description.value,
@@ -82,47 +82,22 @@ function addNewItem(idCounter) {
   `;
 
   notesArea.append(newNote);
-  /*
-  const itemElement = document.getElementById(`item-${idCounter}`);
-  itemElement.addEventListener('click', () => {
-    console.log(idCounter);
-    showNoteModal(idCounter);
-    
-    removeButton.addEventListener(
-      'click',
-      (remove = () => removeNote(idCounter))
-    );
-});
-  */
 }
-
+////////////////
 noteModal.addEventListener('click', event => {
   if (event.target === event.currentTarget) {
     noteModal.classList.toggle('is-hidden');
   }
 });
-
+////////////////
 //show the note modal//
 function showNoteModal(itemId) {
-  nextNote.addEventListener('click', (next = () => goNextNote(itemId)), {
-    once: true,
-  });
-  previousNote.addEventListener(
-    'click',
-    (previous = () => {
-      goPreviousNote(itemId);
-    }),
-    {
-      once: true,
-    }
-  );
-
   noteModal.classList.remove('is-hidden');
 
   noteList.innerHTML = `
      <li class="mk-note__item"><h2 id="note-title">${
        data[itemId - 1].title
-     } №${itemId}</h2>
+     } №<span>${itemId}</span></h2>
         <p id="note-description">${data[itemId - 1].description}</p>
         <p id="note-tags">tags: ${data[itemId - 1].tags}</p></li>`;
 }
@@ -147,56 +122,57 @@ function createLorem() {
   console.log(data);
 }
 
-//remove item//
-function removeNote(id) {
-  console.log(data);
-  const removedItem = document.getElementById(`item-${id}`);
-  removedItem.remove();
-  data[id - 1] = {};
-  noteModal.classList.add('is-hidden');
-  removeButton.removeEventListener('click', remove);
-}
-
-// handling forward and backward buttons//
-function goPreviousNote(itemId) {
-  itemId -= 1;
-  if (itemId < 1) {
-    itemId = 1;
-  }
-  console.log('ne ok');
-  if (!Object.keys(data[itemId - 1]).length) {
-    itemId -= 1;
-  }
-  showNoteModal(itemId);
-}
-function goNextNote(itemId) {
-  console.log('voobshe ne ok');
-  itemId += 1;
-  if (itemId > data.length) {
-    itemId = data.length;
-  }
-  if (!Object.keys(data[itemId - 1]).length) {
-    itemId += 1;
-  }
-  showNoteModal(itemId);
-}
-
+//open item modal //
 let listElementId;
 
-// liElement = document.querySelector('li');
+notesArea.addEventListener('click', openItemModal);
 
-notesArea.addEventListener('click', event => {
+function openItemModal(event) {
   const closestLiElement = event.target.closest('li');
   if (closestLiElement != null) {
-    console.log(closestLiElement.id);
     listElementId = closestLiElement.id;
     listElementId = Number(listElementId.split('-')[1]);
-    console.log(listElementId);
     showNoteModal(listElementId);
     // return listElementId;
   }
-  removeButton.addEventListener(
-    'click',
-    (remove = () => removeNote(listElementId))
-  );
-});
+}
+
+//handling clicks in the modal window of an element//
+noteModal.addEventListener('click', itemClick);
+function itemClick(event) {
+  buttonTarget = event.target.id;
+  switch (buttonTarget) {
+    case 'next':
+      listElementId += 1;
+      if (listElementId > data.length) {
+        listElementId = data.length;
+      }
+      if (!Object.keys(data[listElementId - 1]).length) {
+        listElementId += 1;
+      }
+
+      console.log(listElementId);
+
+      showNoteModal(listElementId);
+      break;
+    case 'previous':
+      listElementId -= 1;
+      console.log(listElementId);
+      if (listElementId < 1) {
+        listElementId = 0;
+      }
+      if (!Object.keys(data[listElementId - 1]).length) {
+        listElementId -= 1;
+      }
+
+      showNoteModal(listElementId);
+      break;
+    case 'remove':
+      console.log(data);
+      const removedItem = document.getElementById(`item-${listElementId}`);
+      removedItem.remove();
+      data[listElementId - 1] = {};
+      noteModal.classList.add('is-hidden');
+      break;
+  }
+}
