@@ -183,18 +183,20 @@ function goNextNote(itemId) {
 
 let listElementId;
 
+// liElement = document.querySelector('li');
+
 notesArea.addEventListener('click', event => {
   const closestLiElement = event.target.closest('li');
-  // if (closestLiElement.id) {
-  console.log(closestLiElement.id);
-  listElementId = closestLiElement.id;
-  listElementId = Number(listElementId.split('-')[1]);
-  console.log(listElementId);
-  showNoteModal(listElementId);
-  // return listElementId;
+  if (closestLiElement != null) {
+    console.log(closestLiElement.id);
+    listElementId = closestLiElement.id;
+    listElementId = Number(listElementId.split('-')[1]);
+    console.log(listElementId);
+    showNoteModal(listElementId);
+    // return listElementId;
+  }
   removeButton.addEventListener(
     'click',
     (remove = () => removeNote(listElementId))
   );
-  // }
 });
