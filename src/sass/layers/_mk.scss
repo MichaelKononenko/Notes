@@ -181,6 +181,10 @@
 #note-description {
   margin-bottom: 20px;
 }
+#note-description {
+  max-height: 30vh;
+  overflow: scroll;
+}
 
 .note-nav__button {
   position: absolute;

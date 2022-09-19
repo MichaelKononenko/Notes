@@ -82,16 +82,18 @@ function addNewItem(idCounter) {
   `;
 
   notesArea.append(newNote);
-
+  /*
   const itemElement = document.getElementById(`item-${idCounter}`);
   itemElement.addEventListener('click', () => {
     console.log(idCounter);
     showNoteModal(idCounter);
+    
     removeButton.addEventListener(
       'click',
       (remove = () => removeNote(idCounter))
     );
-  });
+});
+  */
 }
 
 noteModal.addEventListener('click', event => {
@@ -178,3 +180,22 @@ function goNextNote(itemId) {
   }
   showNoteModal(itemId);
 }
+
+let listElementId;
+
+document.addEventListener('click', event => {
+  const closestLiElement = event.target.closest('li');
+  // if (closestLiElement != null) {
+  // console.log('closest li =', closestLiElement);
+  if (closestLiElement.id) {
+    listElementId = closestLiElement.id;
+    listElementId = Number(listElementId.split('-')[1]);
+    console.log(listElementId);
+    showNoteModal(listElementId);
+    // return listElementId;
+    removeButton.addEventListener(
+      'click',
+      (remove = () => removeNote(listElementId))
+    );
+  }
+});
