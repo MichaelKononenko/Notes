@@ -125,7 +125,7 @@ function openItemModal(event) {
 //handling clicks in the modal window of an element//
 noteModal.addEventListener('click', itemClick);
 function itemClick(event) {
-  buttonTarget = event.target.id;
+  const buttonTarget = event.target.id;
   switch (buttonTarget) {
     case 'next':
       listElementId += 1;
