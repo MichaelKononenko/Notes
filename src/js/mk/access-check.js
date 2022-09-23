@@ -1,3 +1,5 @@
+sessionStorage.setItem('userAccessLevel', 'guest');
+console.log(sessionStorage.getItem('userAccessLevel'));
 const accessButton = document.getElementById('mk-button');
 
 accessButton.addEventListener('click', accessCheck);
@@ -44,7 +46,6 @@ function accessCheck(event) {
   accessForm.addEventListener('change', () => {
     inputLogin = accessForm.elements[0].value;
     inputPassword = accessForm.elements[1].value;
-    console.log(inputLogin, inputPassword);
   });
 
   const accessButton = document.querySelector('.access-submit');
@@ -52,11 +53,21 @@ function accessCheck(event) {
   function accessAllowed(event) {
     event.preventDefault();
     if (inputLogin === LOGIN && inputPassword === PASWORD) {
+      sessionStorage.setItem('userAccessLevel', 'admin');
       document.location.assign('./partials/mk/mk.html');
-      console.log('access allowed');
+      console.log('admin access allowed');
     } else
       body.innerHTML = `<div class="access-denied">
   <p class="alert">Access denied!</p>
 </div>`;
+    setTimeout(() => (location.href = location.href), 1500);
+  }
+
+  const guestButton = document.querySelector('#guest-access');
+  guestButton.addEventListener('click', guestAccess);
+  function guestAccess(event) {
+    sessionStorage.setItem('userAccessLevel', 'guest');
+    document.location.assign('./partials/mk/mk.html');
+    console.log('gueast access allowed');
   }
 }

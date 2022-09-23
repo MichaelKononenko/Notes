@@ -1,26 +1,10 @@
+import { notesData } from './data';
+console.log(notesData);
 const data = [];
-/*
-[
-  {
-    title: 'loop',
-    description:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, maxime!',
-    tags: ['for', 'while', 'do while'],
-  },
-  {
-    title: 'logical operator',
-    description:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, maxime!',
-    tags: ['&&', '||', '!'],
-  },
-  {
-    title: 'conditional branch',
-    description:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, maxime!',
-    tags: ['if', 'if else', 'else'],
-  },
-];
-*/
+
+console.log(data);
+const userAccessLevel = sessionStorage.getItem('userAccessLevel');
+console.log('hello ', userAccessLevel);
 
 let idCounter = 0;
 const addButton = document.getElementById('add');
@@ -30,9 +14,13 @@ const backdrop = document.querySelector('.mk-backdrop');
 const inputModalForm = document.querySelector('.mk-modal__form');
 const noteModal = document.querySelector('.mk-note__backdrop');
 const noteList = document.querySelector('.mk-note__list');
-const removeButton = document.getElementById('remove');
-const previousNote = document.getElementById('previous');
-const nextNote = document.getElementById('next');
+
+//render notes from
+for (const dataItem of notesData) {
+  data.push(dataItem);
+  addNewItem(idCounter);
+  idCounter += 1;
+}
 
 addButton.addEventListener('click', () =>
   backdrop.classList.toggle('is-hidden')
@@ -48,7 +36,6 @@ submitButton.addEventListener('click', createNewNote);
 
 function createNewNote(event) {
   event.preventDefault();
-
   const title = inputModalForm.elements[0];
   const description = inputModalForm.elements[1];
   const tags = inputModalForm.elements[2];
@@ -77,8 +64,8 @@ function addNewItem(idCounter) {
   newNote.id = `item-${idCounter}`;
 
   newNote.innerHTML += `
-   <h2 class="note__title">${data[idCounter - 1].title} №${idCounter}</h2>
-    <p class="note__tags">tags: ${data[idCounter - 1].tags}</p>
+   <h2 class="note__title">${data[idCounter].title} №${idCounter}</h2>
+    <p class="note__tags">tags: ${data[idCounter].tags}</p>
   `;
 
   notesArea.append(newNote);
@@ -95,11 +82,9 @@ function showNoteModal(itemId) {
   noteModal.classList.remove('is-hidden');
 
   noteList.innerHTML = `
-     <li class="mk-note__item"><h2 id="note-title">${
-       data[itemId - 1].title
-     } №<span>${itemId}</span></h2>
-        <p id="note-description">${data[itemId - 1].description}</p>
-        <p id="note-tags">tags: ${data[itemId - 1].tags}</p></li>`;
+     <li class="mk-note__item"><h2 id="note-title">${data[itemId].title} №<span>${itemId}</span></h2>
+        <p id="note-description">${data[itemId].description}</p>
+        <p id="note-tags">tags: ${data[itemId].tags}</p></li>`;
 }
 
 //add 10 lorem items//
@@ -108,7 +93,6 @@ loremItemButton.addEventListener('click', createLorem);
 
 function createLorem() {
   for (let i = 0; i < 10; i++) {
-    idCounter += 1;
     const newData = {
       title: 'Lorem, ipsum',
       description:
@@ -118,6 +102,7 @@ function createLorem() {
     data.push(newData);
 
     addNewItem(idCounter);
+    idCounter += 1;
   }
   console.log(data);
 }
@@ -144,24 +129,21 @@ function itemClick(event) {
   switch (buttonTarget) {
     case 'next':
       listElementId += 1;
-      if (listElementId > data.length) {
-        listElementId = data.length;
+      if (listElementId > data.length - 1) {
+        listElementId = data.length - 1;
       }
-      if (!Object.keys(data[listElementId - 1]).length) {
+      if (!Object.keys(data[listElementId]).length) {
         listElementId += 1;
       }
-
-      console.log(listElementId);
 
       showNoteModal(listElementId);
       break;
     case 'previous':
       listElementId -= 1;
-      console.log(listElementId);
       if (listElementId < 1) {
         listElementId = 0;
       }
-      if (!Object.keys(data[listElementId - 1]).length) {
+      if (!Object.keys(data[listElementId]).length) {
         listElementId -= 1;
       }
 
@@ -171,7 +153,7 @@ function itemClick(event) {
       console.log(data);
       const removedItem = document.getElementById(`item-${listElementId}`);
       removedItem.remove();
-      data[listElementId - 1] = {};
+      data[listElementId] = {};
       noteModal.classList.add('is-hidden');
       break;
   }
