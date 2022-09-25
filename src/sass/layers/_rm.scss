@@ -24,7 +24,7 @@ h3 {
   font-weight: 700;
 }
 
-.html,
+// .html,
 .body {
   height: 100%;
   line-height: 1.6;
@@ -86,24 +86,19 @@ body._lock {
   min-height: 70px;
 }
 .header__logo {
-  border-radius: 50%;
-  background-color: azure;
+  border-radius: 20%;
+  // background-image: url(../images/pngwing.com.png);
+
   position: relative;
   z-index: 5;
   width: 40px;
   height: 40px;
 }
-.header__menu {
-}
-.menu {
-}
-.menu__icon {
-  display: none;
-}
-.menu__body {
-}
-.menu__list {
-}
+
+
+// .menu__icon {
+//   display: none;
+// }
 
 .menu__list > li {
   position: relative;
@@ -306,4 +301,151 @@ body._touch .menu__list > li._active .menu__arrow {
     font-size: 20px;
     color: rgb(30, 0, 255);
   }
+}
+
+// ==================NoteApp========================//
+// .body-rm {
+
+// }
+
+.note-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1 1 0%;
+padding: 20px 20px;
+max-width: 800px;
+width: 100%;
+margin: 0 auto;
+
+}
+
+.note-title {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 55px;
+  font-weight: 600;
+  color: rgb(42, 0, 56);
+}
+
+.harold-img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.note-body {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgb(44, 44, 44);
+}
+
+#new-note-form {
+  display: flex;
+  
+}
+
+.note-body input,
+.note-body button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#new-note-input {
+  flex: 1 1 0%;
+  background-image: linear-gradient(to right, rgb(253, 216, 255), rgb(202, 253, 255));
+  padding: 10px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-size: 20px;
+  color: rgb(29, 0, 61);
+}
+
+#new-note-input::placeholder {
+  color: rgb(100, 100, 100);
+}
+
+#new-note-submit {
+color: rgb(40, 40, 40);
+font-size: 20px;
+font-weight: 700;
+background-image: linear-gradient(to right, rgb(240, 0, 253), rgb(68, 71, 255));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+border-radius: 15px;
+cursor: pointer;
+transition: 0.4s;
+}
+
+#new-note-submit:hover {
+  opacity: 0.7;
+  box-shadow: 0px 10px 20px #bca7ff;
+}
+
+#new-note-submit:active {
+  opacity: 0.5;
+}
+
+.list-title {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 40px;
+  font-weight: 600;
+  color: rgb(81, 0, 109);
+}
+
+#notes-rm .note-rm {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #fbaeff, rgb(170, 171, 255));
+padding: 10px;
+border-radius: 15px;
+margin-bottom: 10px;
+}
+
+.content-rm {
+  flex: 1 1 0%;
+}
+
+#notes-rm .note-rm .text {
+  color: #4b378c;
+  font-size: 25px;
+  width: 100%;
+  display: block;
+  transition: 0.4s;
+
+}
+
+#notes-rm .note-rm .text:not(:read-only) {
+color: aqua;
+}
+
+#notes-rm .note-rm .actions-rm {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.actions-rm button {
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4b378c;
+  text-transform: uppercase;
+  transition: 0.4s;
+
+}
+
+.actions-rm button:hover {
+  opacity: 0.7;
+  
+}
+
+.actions-rm button:active {
+  opacity: 0.5;
+}
+
+.actions-rm .btn-delete {
+  color: rgb(204, 45, 77);
 }

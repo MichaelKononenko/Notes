@@ -24,9 +24,9 @@ const isMobile = {
       isMobile.BlackBerry() ||
       isMobile.iOS() ||
       isMobile.Opera() ||
-      isMobile.Windows());
-    
-  }
+      isMobile.Windows()
+    );
+  },
 };
 
 if (isMobile.any()) {
@@ -50,12 +50,12 @@ if (isMobile.any()) {
 const iconMenu = document.querySelector('.menu__icon');
 const menuBody = document.querySelector('.menu__body');
 if (iconMenu) {
-    const menuBody = document.querySelector('.menu__body');
-    iconMenu.addEventListener('click', function(e) {
-        document.body.classList.toggle('_lock');
-        iconMenu.classList.toggle('_active');
-        menuBody.classList.toggle('_active');
-    })
+  const menuBody = document.querySelector('.menu__body');
+  iconMenu.addEventListener('click', function (e) {
+    document.body.classList.toggle('_lock');
+    iconMenu.classList.toggle('_active');
+    menuBody.classList.toggle('_active');
+  });
 }
 
 //================Smooth scroll======================//
@@ -78,17 +78,93 @@ if (menuLinks.length > 0) {
         pageYOffset -
         document.querySelector('header').offsetHeight;
 
-        if (iconMenu.classList.contains('_active')) {
-            document.body.classList.remove('_lock');
-            iconMenu.classList.remove('_active');
-            menuBody.classList.remove('_active');
-        }
+      if (iconMenu.classList.contains('_active')) {
+        document.body.classList.remove('_lock');
+        iconMenu.classList.remove('_active');
+        menuBody.classList.remove('_active');
+      }
 
-        window.scrollTo({
-            top: gotoBlockValue,
-            behavior: 'smooth'
-        });
-        e.preventDefault();
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: 'smooth',
+      });
+      e.preventDefault();
     }
   }
 }
+
+// ================NotesAPP========================
+
+
+window.addEventListener('load', () => {
+  const formEl = document.querySelector('#new-note-form');
+  const inputEl = document.querySelector('#new-note-input');
+  const listEl = document.querySelector('#notes-rm');
+
+  formEl.addEventListener('submit', evt => {
+    evt.preventDefault();
+
+    const note = inputEl.value;
+    if (!note) {
+      alert('Hey! You! FILL OUT THE TASK!');
+      return;
+    }
+
+    const noteEl = document.createElement('div');
+    noteEl.classList.add('note-rm');
+
+    const noteContentEl = document.createElement('div');
+    noteContentEl.classList.add('content-rm');
+    noteContentEl.innerText = note;
+
+    noteEl.appendChild(noteContentEl);
+
+    const noteInputEl = document.createElement('input');
+    noteInputEl.classList.add('text-rm');
+    noteInputEl.type = 'text';
+    noteInputEl.value = note;
+    noteInputEl.setAttribute("readonly", "readonly");
+
+noteContentEl.appendChild(noteInputEl);
+
+const noteActionEl = document.createElement('div');
+noteActionEl.classList.add('actions-rm');
+
+const noteEditEl = document.createElement('button');
+noteEditEl.classList.add('btn-edit');
+noteEditEl.innerHTML = 'Edit';
+
+const noteDeleteEl = document.createElement('button');
+noteDeleteEl.classList.add('btn-delete');
+noteDeleteEl.innerHTML = 'Delete';
+
+noteActionEl.appendChild(noteEditEl);
+noteActionEl.appendChild(noteDeleteEl);
+
+noteEl.appendChild(noteActionEl);
+
+    listEl.appendChild(noteEl);
+
+    inputEl.value = "";
+
+    noteEditEl.addEventListener('click', () => {
+     
+     if (noteEditEl.innerText.toLowerCase == "edit") {
+      noteInputEl.removeAttribute("readonly");
+      noteInputEl.focus();
+      noteEditEl.innerText = "Save";
+     } else {
+     
+      noteInputEl.setAttribute("readonly", "readonly");
+      noteEditEl.innerText = "Edit";
+     }
+    });
+
+    noteDeleteEl.addEventListener('click', () => {
+      listEl.removeChild(noteEl);
+    })
+
+
+
+  });
+});
